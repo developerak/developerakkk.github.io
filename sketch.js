@@ -1,4 +1,4 @@
-var img,img2,img3,img4,imgg,imgg2,imgg3,imgg4; //declaring variable for images
+var img,img2,img3,img4,imgg,imgg2,imgg3,imgg4,congo; //declaring variable for images
 let apple=false;   // setting boolean value as false for all the images
 let apple2=false;
 let banana=false;
@@ -7,15 +7,28 @@ let car=false;
 let car2=false;
 let duck=false;
 let duck2=false;
+let  a=false;
+let b=false;
+let c=false;
+let d=false;
+var song;
+var song2;
 
+function preload()
+{
+		song = loadSound("unconvinced.mp3");
+		song2 = loadSound("applauses.mp3");
+
+}
 function setup() 
 {
+	
 	createCanvas(windowWidth, windowHeight); //setting canvas size as  same as the size of window
 	background(155);//setting background color
 	noStroke();
 	fill(0);
 
-
+			congo = loadImage('congo.gif'); 
 		 img = loadImage('apple.jpg'); //loading images from the specified folder and assigning it to variables. 
 		 img2 = loadImage('banana.jpg');
 		 img3 = loadImage('car.jpg');
@@ -102,19 +115,47 @@ function mouseClicked()                       //function that gets triggered on 
 function checkingApple()
 {
 		if(apple==true && apple2==true) {
-		text("Apple Matched",5,255);}
+		text("Apple Matched",5,255);
+				song.play();
+				a=true;
+				play();
+		}
+		
 }
 function checkingBanana()		
 {		if(banana==true && banana2==true) {
-		text("banana matched",5,275);}
+		text("banana matched",5,275);
+			song.play();
+			b=true;
+			play();
+
+		}
 }
 function checkingCar()		
 {		if(car==true && car2==true) {
-		text("Car matched",5,295);}
+		text("Car matched",5,295);
+		c=true;
+		song.play();
+		play();
+		}
 }
 
 function checkDuck()		
 {		if(duck==true && duck2==true) {
-		text("Duck matched",5,315);}
+		text("Duck matched",5,315);
+		d=true;
+				song.play();
+				play();
+
+		}
 }
+function play()
+{
+	if(a==true && b==true && c==true && d==true )
+	{
+			song2.play();
+			 image(congo, 480, 220,height="250",width="250");
+	}
+}
+
 
